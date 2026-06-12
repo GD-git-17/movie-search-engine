@@ -1,9 +1,4 @@
-/* Movie Search Engine (Block 2)
-   Implements OMDb-backed movie search UI:
-   - searchMovies() / fetchMovies(query)
-   - loader + error handling
-   - Bootstrap responsive movie cards
-*/
+
 
 const API_KEY = "ec28b25";
 const BASE_URL = "https://www.omdbapi.com/";
