@@ -73,20 +73,122 @@ input:focus-visible {
 }
 
 /* ===== Navbar ===== */
-/* Milestone 2 */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+.navbar .nav-link {
+  color: rgba(234, 240, 255, 0.85);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--text);
+  background: rgba(110, 168, 254, 0.15);
+  transform: translateY(-1px);
+}
+
+.dark-mode-toggle[disabled] {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 
 /* ===== Hero ===== */
-/* Milestone 3 */
+.hero {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(110, 168, 254, 0.18), rgba(11, 18, 32, 0) 70%);
+}
+
+.hero-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  color: rgba(234, 240, 255, 0.85);
+  font-size: 1.05rem;
+}
+
+.hero-cta {
+  color: var(--muted);
+}
 
 /* ===== Search ===== */
-/* Milestone 4 */
+.search-section {
+  padding: 0.5rem 0 2rem;
+}
+
+.search-section .input-group {
+  background: rgba(16, 26, 51, 0.7);
+  border: 1px solid rgba(170, 182, 218, 0.25);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.search-section .input-group-text {
+  background: transparent;
+  border: 0;
+  color: rgba(234, 240, 255, 0.9);
+}
+
+.search-section input.form-control {
+  background: transparent;
+  border: 0;
+  color: var(--text);
+}
+
+.search-section input.form-control::placeholder {
+  color: rgba(170, 182, 218, 0.9);
+}
+
+.search-section .btn-primary {
+  border: 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.search-section .about {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: rgba(16, 26, 51, 0.45);
+  border: 1px solid rgba(170, 182, 218, 0.18);
+}
 
 /* ===== Results ===== */
-/* Milestone 5 */
+.results {
+  padding: 1.5rem 0 3rem;
+}
+
+.movie-container {
+  min-height: 10rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: rgba(16, 26, 51, 0.3);
+  border: 1px solid rgba(170, 182, 218, 0.15);
+}
+
+.empty-state {
+  font-size: 1.05rem;
+}
 
 /* ===== Footer ===== */
-/* Milestone 6 */
+.app-footer {
+  padding: 1.25rem 0 2rem;
+  border-top: 1px solid rgba(170, 182, 218, 0.12);
+  color: rgba(234, 240, 255, 0.9);
+}
 
 /* ===== Media queries ===== */
-/* Milestone 6 will expand */
+@media (min-width: 992px) {
+  .hero {
+    padding: 4rem 0 2rem;
+    text-align: left;
+  }
+}
+
 

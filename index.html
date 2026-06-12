@@ -24,16 +24,157 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header>
-      <!-- Milestone 2 will implement full navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-transparent py-3 sticky-top"
+        aria-label="Primary navigation"
+      >
+        <div class="container">
+          <a class="navbar-brand fw-semibold" href="#main" aria-label="Movie Search Engine home">
+            <span aria-hidden="true">🎬</span>
+            <span class="ms-2">Movie Search Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#primaryNavbar"
+            aria-controls="primaryNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="primaryNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#main">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit GitHub repository (opens in a new tab)"
+                >
+                  GitHub
+                </a>
+              </li>
+              <li class="nav-item ms-lg-2">
+                <button
+                  class="btn btn-outline-light btn-sm rounded-pill dark-mode-toggle"
+                  type="button"
+                  aria-label="Toggle dark mode (UI only)"
+                  disabled
+                >
+                  Dark Mode
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main id="main" class="page">
-      <!-- Milestone 3-5 will implement hero, search, results, loader, errors -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 col-lg-8">
+              <h1 id="hero-title" class="hero-title">🎬 Movie Search Engine</h1>
+              <p class="hero-subtitle mb-0">Search ratings, posters, plots and movie details instantly.</p>
+              <p class="hero-cta mt-3 mb-0">Type a movie name below and hit Search.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="search" class="search-section" aria-labelledby="search-title">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+              <h2 id="search-title" class="visually-hidden">Search for movies</h2>
+
+              <div class="input-group input-group-lg">
+                <span class="input-group-text" id="movie-search-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.006.01.01.018l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.018-.01h-.001zM12 6a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/>
+                  </svg>
+                </span>
+                <label class="visually-hidden" for="movie-search-input">Search for a movie</label>
+                <input
+                  id="movie-search-input"
+                  type="search"
+                  class="form-control"
+                  placeholder="Search for a movie..."
+                  aria-describedby="movie-search-icon"
+                  autocomplete="off"
+                />
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  aria-label="Search (no functionality yet)"
+                >
+                  <span aria-hidden="true">Search</span>
+                </button>
+              </div>
+
+              <div class="about mt-5" id="about" aria-label="About this project">
+                <h2 class="h4 mb-2">About</h2>
+                <p class="text-muted mb-0">A fast, mobile-first movie search UI designed to connect to the OMDb API later.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="results" aria-labelledby="results-title">
+        <div class="container">
+          <div class="d-flex flex-column gap-3">
+            <div>
+              <h2 id="results-title" class="h4 mb-2">Popular Movies</h2>
+            </div>
+
+            <div id="loader" class="text-center d-none" role="status" aria-live="polite">
+              <div class="spinner-border text-light" style="width: 3rem; height: 3rem" role="presentation"></div>
+              <p class="mt-2 mb-0 text-muted">Loading...</p>
+            </div>
+
+            <div
+              id="error-message"
+              class="alert alert-danger d-none mb-0"
+              role="alert"
+              aria-live="assertive"
+            >
+              Something went wrong. Please try again.
+            </div>
+
+            <div
+              id="movie-container"
+              class="movie-container card bg-transparent border-0"
+              aria-label="Movie search results"
+            >
+              <p class="text-muted mb-0 empty-state">
+                Search for a movie to get started.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <!-- Milestone 6 will implement full footer -->
+    <footer class="app-footer mt-auto">
+      <div class="container text-center">
+        <p class="mb-0">Movie Search Engine © 2026</p>
+        <p class="text-muted small mb-0">Built with HTML, CSS, Bootstrap and JavaScript</p>
+      </div>
     </footer>
+
 
     <!-- Bootstrap JS (optional for UI components like navbar toggler) -->
     <script
