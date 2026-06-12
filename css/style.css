@@ -198,7 +198,42 @@ Results Section
   border: 1px solid rgba(170, 182, 218, 0.22);
 }
 
+.movie-card {
+  background: rgba(16, 26, 51, 0.35);
+  border-color: rgba(170, 182, 218, 0.22) !important;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.movie-card img {
+  height: 320px;
+  object-fit: cover;
+  background: rgba(16, 26, 51, 0.55);
+}
+
+.movie-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+}
+
+.movie-card .card-body {
+  display: flex;
+}
+
+.view-details-btn {
+  border-radius: 12px;
+  border-width: 2px;
+  background: transparent;
+}
+
+@media (max-width: 576px) {
+  .movie-card img {
+    height: 280px;
+  }
+}
+
 .empty-state {
+
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.78) !important;
 }

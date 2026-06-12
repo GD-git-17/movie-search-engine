@@ -93,11 +93,22 @@ function displayMovies(movies) {
                   alt="Poster for ${title}"
                   loading="lazy"
                 />
-                <div class="p-3">
-                  <h3 class="h6 mb-1 text-white">${title}</h3>
-                  <p class="mb-1 text-muted small">Year: ${year}</p>
-                  <p class="mb-0 text-muted small">Type: ${type}</p>
+                <div class="p-3 d-flex flex-column h-100">
+                  <h3 class="h6 mb-2 text-white">${title}</h3>
+                  <div class="mt-auto">
+                    <p class="mb-1 text-muted small">Year: ${year}</p>
+                    <p class="mb-3 text-muted small">Type: ${type}</p>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-100 view-details-btn"
+                      type="button"
+                      data-imdb-id="${movie.imdbID || ""}"
+                      aria-label="View details for ${title}"
+                    >
+                      View Details
+                    </button>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
