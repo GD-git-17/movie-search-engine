@@ -102,7 +102,7 @@ input:focus-visible {
 Hero Section
 ====================== */
 .hero {
-  padding: 3.25rem 0 2rem;
+  padding: 2.25rem 0 1.25rem;
   text-align: center;
   background: linear-gradient(
     180deg,
@@ -110,6 +110,17 @@ Hero Section
     rgba(11, 18, 32, 0) 70%
   );
 }
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-support {
+  color: rgba(255, 255, 255, 0.65);
+}
+
 
 .hero-title {
   font-weight: 900;
@@ -138,9 +149,19 @@ Hero Section
 Search Section
 ====================== */
 .search-section {
-
-  padding: 0.5rem 0 2rem;
+  padding: 0.75rem 0 1.25rem;
 }
+
+.search-inner {
+  max-width: 720px;
+  margin: 2rem auto 0;
+}
+
+.search-section .input-group.search-bar {
+  margin: 0 auto;
+  max-width: 720px;
+}
+
 
 .search-section .input-group {
   background: rgba(16, 26, 51, 0.7);
@@ -181,14 +202,14 @@ Search Section
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-
-/* =====================
-Results Section
-====================== */
 .results {
-
-  padding: 1.5rem 0 3rem;
+  padding: 0.75rem 0 2rem;
 }
+
+#results-title {
+  font-weight: 800;
+}
+
 
 .movie-container {
   min-height: 10rem;
@@ -243,7 +264,8 @@ Results Section
 Footer
 ====================== */
 .app-footer {
-  padding: 1.75rem 0 2.25rem;
+  padding: 2.25rem 0 2.5rem;
+
   border-top: 1px solid rgba(170, 182, 218, 0.16);
   color: rgba(255, 255, 255, 0.92);
 }
