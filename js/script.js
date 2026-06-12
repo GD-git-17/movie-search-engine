@@ -163,15 +163,23 @@ async function searchMovies() {
   }
 
   try {
+    console.log("Search started");
     showLoader();
+
+    console.log("Fetching movies:", query);
     const movies = await fetchMovies(query);
-    hideLoader();
+
+    console.log("API Response received");
+    console.log("Rendering movies");
     displayMovies(movies);
   } catch (err) {
-    hideLoader();
+    console.error("Search Error:", err);
     showError(err?.message || "Something went wrong. Please try again.");
     // Keep results empty/clean
     clearResults();
+  } finally {
+    console.log("Hiding loader");
+    hideLoader();
   }
 }
 
