@@ -72,7 +72,7 @@ input:focus-visible {
   padding-bottom: 2rem;
 }
 
-/* ===== Navbar ===== */
+
 .navbar {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
