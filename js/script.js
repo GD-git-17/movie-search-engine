@@ -195,7 +195,7 @@ async function searchMovies() {
 }
 
 // Initialize once DOM is ready (script is module so it executes late, but keep safe)
-window.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("DOMContentLoaded", () => {
   // Default results
   clearResults();
 
@@ -215,6 +215,149 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Event delegation for View Details
+  document.body.addEventListener("click", async (e) => {
+    const btn = e.target?.closest?.(".view-details-btn");
+    if (!btn) return;
+
+    const imdbID = btn.getAttribute("data-imdb-id");
+    if (!imdbID) {
+      showErrorInModal("Invalid movie identifier.");
+      return;
+    }
+
+    await fetchMovieDetails(imdbID);
+  });
 });
+
+// ===== Movie Details Modal (Block 3) =====
+const modalEl = document.getElementById("movie-details-modal");
+const modalLoadingEl = document.getElementById("movie-details-loading");
+const modalErrorEl = document.getElementById("movie-details-error");
+const modalContentEl = document.getElementById("movie-details-content");
+const modalPosterEl = document.getElementById("movie-details-poster");
+const modalTitleEl = document.getElementById("movie-details-title");
+const modalMetaEl = document.getElementById("movie-details-meta");
+
+const modalRatingEl = document.getElementById("movie-details-rating");
+const modalGenreEl = document.getElementById("movie-details-genre");
+const modalRuntimeEl = document.getElementById("movie-details-runtime");
+
+const modalReleasedEl = document.getElementById("movie-details-released");
+const modalLanguageEl = document.getElementById("movie-details-language");
+const modalCountryEl = document.getElementById("movie-details-country");
+const modalDirectorEl = document.getElementById("movie-details-director");
+const modalActorsEl = document.getElementById("movie-details-actors");
+const modalAwardsEl = document.getElementById("movie-details-awards");
+const modalPlotEl = document.getElementById("movie-details-plot");
+
+function showModalLoading() {
+  if (modalLoadingEl) modalLoadingEl.classList.remove("d-none");
+  if (modalErrorEl) modalErrorEl.classList.add("d-none");
+  if (modalContentEl) modalContentEl.classList.add("d-none");
+}
+
+function showErrorInModal(message) {
+  if (modalLoadingEl) modalLoadingEl.classList.add("d-none");
+  if (modalErrorEl) {
+    modalErrorEl.textContent = message;
+    modalErrorEl.classList.remove("d-none");
+  }
+  if (modalContentEl) modalContentEl.classList.add("d-none");
+}
+
+function showMovieDetails(movie) {
+  if (!movie) {
+    showErrorInModal("Movie details unavailable.");
+    return;
+  }
+
+  const posterUrl = movie.Poster && movie.Poster !== "N/A" ? movie.Poster : PLACEHOLDER_POSTER_DATA_URI;
+  const title = movie.Title ?? "Untitled";
+
+  if (modalPosterEl) modalPosterEl.src = posterUrl;
+  if (modalPosterEl) modalPosterEl.alt = `Poster for ${title}`;
+  if (modalTitleEl) modalTitleEl.textContent = title;
+
+  if (modalMetaEl) {
+    const imdbIdText = movie.imdbID ? `IMDb: ${movie.imdbID}` : "";
+    const metaPieces = [movie.Year ? `Year: ${movie.Year}` : "", imdbIdText].filter(Boolean);
+    modalMetaEl.textContent = metaPieces.join(" • ");
+  }
+
+  if (modalRatingEl) modalRatingEl.textContent = `IMDb: ${movie.imdbRating ?? "—"}`;
+  if (modalGenreEl) modalGenreEl.textContent = movie.Genre ?? "—";
+  if (modalRuntimeEl) modalRuntimeEl.textContent = movie.Runtime ?? "—";
+
+  if (modalReleasedEl) modalReleasedEl.textContent = movie.Released ?? "—";
+  if (modalLanguageEl) modalLanguageEl.textContent = movie.Language ?? "—";
+  if (modalCountryEl) modalCountryEl.textContent = movie.Country ?? "—";
+  if (modalDirectorEl) modalDirectorEl.textContent = movie.Director ?? "—";
+  if (modalActorsEl) modalActorsEl.textContent = movie.Actors ?? "—";
+  if (modalAwardsEl) modalAwardsEl.textContent = movie.Awards ?? "—";
+  if (modalPlotEl) modalPlotEl.textContent = movie.Plot && movie.Plot !== "N/A" ? movie.Plot : "Plot unavailable.";
+
+  if (modalLoadingEl) modalLoadingEl.classList.add("d-none");
+  if (modalErrorEl) modalErrorEl.classList.add("d-none");
+  if (modalContentEl) modalContentEl.classList.remove("d-none");
+}
+
+function openMovieModal() {
+  if (!modalEl) return;
+
+  // Bootstrap modal instance
+  // eslint-disable-next-line no-undef
+  const modal = bootstrap?.Modal?.getOrCreateInstance?.(modalEl);
+  if (modal && typeof modal.show === "function") modal.show();
+
+  // Focus management: keep the close button reachable
+  const closeBtn = modalEl.querySelector(".btn-close");
+  closeBtn?.focus?.();
+}
+
+function closeMovieModal() {
+  if (!modalEl) return;
+  // eslint-disable-next-line no-undef
+  const modal = bootstrap?.Modal?.getOrCreateInstance?.(modalEl);
+  if (modal && typeof modal.hide === "function") modal.hide();
+}
+
+async function fetchMovieDetails(imdbID) {
+  if (!imdbID) {
+    showErrorInModal("Invalid IMDb ID.");
+    return;
+  }
+
+  if (!modalEl) return;
+
+  openMovieModal();
+  showModalLoading();
+
+  try {
+    const url = new URL(BASE_URL);
+    url.searchParams.set("apikey", API_KEY);
+    url.searchParams.set("i", imdbID);
+    url.searchParams.set("plot", "full");
+
+    const res = await fetch(url.toString());
+    if (!res.ok) {
+      throw new Error("Network failure. Please try again.");
+    }
+
+    const data = await res.json();
+
+    if (data?.Response === "False") {
+      const errMsg = data?.Error || "Movie details unavailable.";
+      throw new Error(errMsg);
+    }
+
+    showMovieDetails(data);
+  } catch (err) {
+    showErrorInModal(err?.message || "Something went wrong. Please try again.");
+  }
+}
+
+
 
 

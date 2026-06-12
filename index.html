@@ -173,7 +173,81 @@
       </section>
     </main>
 
+    <!-- Movie Details Modal (Block 3) -->
+    <div
+      class="modal fade"
+      id="movie-details-modal"
+      tabindex="-1"
+      aria-labelledby="movie-details-modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="movie-details-modal-title">Movie Details</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close movie details"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div id="movie-details-loading" class="text-center d-none" role="status" aria-live="polite">
+              <div class="spinner-border" style="width: 3rem; height: 3rem" role="presentation"></div>
+              <p class="mt-2 mb-0 text-muted">Loading details...</p>
+            </div>
+
+            <div id="movie-details-error" class="alert alert-danger d-none mb-0" role="alert" aria-live="assertive"></div>
+
+            <div id="movie-details-content" class="d-none">
+              <div class="row g-3">
+                <div class="col-12 col-md-4">
+                  <div class="ratio" style="--bs-aspect-ratio: 3/4;">
+                    <img id="movie-details-poster" src="" alt="Poster" class="w-100 h-100 object-fit-cover rounded" />
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-8">
+                  <h3 id="movie-details-title" class="h5 mb-2 text-white"></h3>
+                  <p class="mb-2 text-muted" id="movie-details-meta"></p>
+
+                  <div class="mb-3">
+                    <div class="d-flex flex-wrap gap-2">
+                      <span class="badge text-bg-primary" id="movie-details-rating"></span>
+                      <span class="badge text-bg-secondary" id="movie-details-genre"></span>
+                      <span class="badge text-bg-secondary" id="movie-details-runtime"></span>
+                    </div>
+                  </div>
+
+                  <div class="row g-2">
+                    <div class="col-12 col-sm-6">
+                      <p class="mb-1"><strong>Released:</strong> <span id="movie-details-released"></span></p>
+                      <p class="mb-1"><strong>Language:</strong> <span id="movie-details-language"></span></p>
+                      <p class="mb-1"><strong>Country:</strong> <span id="movie-details-country"></span></p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <p class="mb-1"><strong>Director:</strong> <span id="movie-details-director"></span></p>
+                      <p class="mb-1"><strong>Actors:</strong> <span id="movie-details-actors"></span></p>
+                      <p class="mb-1"><strong>Awards:</strong> <span id="movie-details-awards"></span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <h4 class="h6 mb-2 text-white">Plot</h4>
+                <p id="movie-details-plot" class="mb-0 text-muted"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="app-footer mt-auto">
+
       <div class="container text-center">
         <p class="mb-0">Movie Search Engine © 2026</p>
         <p class="text-muted small mb-0">Built with HTML, CSS, Bootstrap and JavaScript</p>
