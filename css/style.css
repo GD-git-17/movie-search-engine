@@ -110,8 +110,8 @@ Hero Section
   );
 }
 
-
 .hero-title {
+
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
@@ -126,8 +126,11 @@ Hero Section
   color: var(--muted);
 }
 
-/* ===== Search ===== */
+/* =====================
+Search Section
+====================== */
 .search-section {
+
   padding: 0.5rem 0 2rem;
 }
 
@@ -166,8 +169,11 @@ Hero Section
   border: 1px solid rgba(170, 182, 218, 0.18);
 }
 
-/* ===== Results ===== */
+/* =====================
+Results Section
+====================== */
 .results {
+
   padding: 1.5rem 0 3rem;
 }
 
@@ -183,8 +189,11 @@ Hero Section
   font-size: 1.05rem;
 }
 
-/* ===== Footer ===== */
+/* =====================
+Footer
+====================== */
 .app-footer {
+
   padding: 1.25rem 0 2rem;
   border-top: 1px solid rgba(170, 182, 218, 0.12);
   color: rgba(234, 240, 255, 0.9);
