@@ -35,9 +35,10 @@ body {
     "Segoe UI Emoji";
   background: radial-gradient(900px circle at 10% 0%, rgba(110, 168, 254, 0.18), transparent 50%),
     var(--bg);
-  color: var(--text);
+  color: #ffffff;
   line-height: 1.5;
 }
+
 
 a {
   color: inherit;
@@ -101,30 +102,37 @@ input:focus-visible {
 Hero Section
 ====================== */
 .hero {
-  padding: 2.5rem 0 1.5rem;
+  padding: 3.25rem 0 2rem;
   text-align: center;
   background: linear-gradient(
     180deg,
-    rgba(110, 168, 254, 0.18),
+    rgba(110, 168, 254, 0.22),
     rgba(11, 18, 32, 0) 70%
   );
 }
 
 .hero-title {
-
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  letter-spacing: -0.03em;
+  margin: 0 auto 0.75rem;
+  max-width: 36ch;
 }
 
+
 .hero-subtitle {
-  color: rgba(234, 240, 255, 0.85);
-  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.075rem;
+  margin: 0 auto;
+  max-width: 58ch;
 }
 
 .hero-cta {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 auto;
+  max-width: 60ch;
 }
+
 
 /* =====================
 Search Section
@@ -165,9 +173,14 @@ Search Section
 .search-section .about {
   padding: 1rem;
   border-radius: var(--radius);
-  background: rgba(16, 26, 51, 0.45);
-  border: 1px solid rgba(170, 182, 218, 0.18);
+  background: rgba(22, 36, 68, 0.55);
+  border: 1px solid rgba(170, 182, 218, 0.22);
 }
+
+.search-section .about .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
 
 /* =====================
 Results Section
@@ -179,25 +192,31 @@ Results Section
 
 .movie-container {
   min-height: 10rem;
-  padding: 1.25rem;
+  padding: 1.5rem 1.25rem;
   border-radius: var(--radius);
-  background: rgba(16, 26, 51, 0.3);
-  border: 1px solid rgba(170, 182, 218, 0.15);
+  background: rgba(22, 36, 68, 0.42);
+  border: 1px solid rgba(170, 182, 218, 0.22);
 }
 
 .empty-state {
   font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.78) !important;
 }
+
 
 /* =====================
 Footer
 ====================== */
 .app-footer {
-
-  padding: 1.25rem 0 2rem;
-  border-top: 1px solid rgba(170, 182, 218, 0.12);
-  color: rgba(234, 240, 255, 0.9);
+  padding: 1.75rem 0 2.25rem;
+  border-top: 1px solid rgba(170, 182, 218, 0.16);
+  color: rgba(255, 255, 255, 0.92);
 }
+
+.app-footer .text-muted {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
 
 /* ===== Media queries ===== */
 @media (min-width: 992px) {
