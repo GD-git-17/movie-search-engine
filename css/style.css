@@ -1,0 +1,92 @@
+/* =====
+   Block 1: Foundation & UI Skeleton
+   Sections: variables, global styles, navbar, hero, search, results, footer, media queries
+   ===== */
+
+:root {
+  --bg: #0b1220;
+  --surface: #101a33;
+  --text: #eaf0ff;
+  --muted: #aab6da;
+  --primary: #6ea8fe;
+  --primary-600: #3b82f6;
+  --danger: #fb7185;
+  --success: #34d399;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  --focus-ring: 0 0 0 3px rgba(110, 168, 254, 0.35);
+}
+
+/* Global styles (mobile-first) */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  background: radial-gradient(900px circle at 10% 0%, rgba(110, 168, 254, 0.18), transparent 50%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 12px;
+  z-index: 9999;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: top 150ms ease;
+  box-shadow: var(--shadow);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.page {
+  padding-bottom: 2rem;
+}
+
+/* ===== Navbar ===== */
+/* Milestone 2 */
+
+/* ===== Hero ===== */
+/* Milestone 3 */
+
+/* ===== Search ===== */
+/* Milestone 4 */
+
+/* ===== Results ===== */
+/* Milestone 5 */
+
+/* ===== Footer ===== */
+/* Milestone 6 */
+
+/* ===== Media queries ===== */
+/* Milestone 6 will expand */
+
